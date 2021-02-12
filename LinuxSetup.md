@@ -1,600 +1,810 @@
-# First Boot after Install
-All Files in D/L/linux Files
-#### If dual boot 
-To Sync clock between OS's
+# After install of Ubuntu OS Use this file
 
-`timedatectl set-local-rtc 1 --adjust-system-clock`
+All Files are in the D/L/linux Files folder
 
-**show users with root acceses**    
-`grep '^sudo:.*$' /etc/group | cut -d: -f4`
+-   On a dual boot system with ubuntu and windows to Sync clock between OS's  
+     `timedatectl set-local-rtc 1 --adjust-system-clock`
 
-**to repair packages**
-sudo dpkg --configure -a
-**Creating a new user:**    
-`sudo adduser username`   
+-   **show users with root acceses**  
+     `grep '^sudo:.*$' /etc/group | cut -d: -f4`
 
-**Add user to root group:**    
-`sudo usermod -aG sudo username`
-
-**Check users in the pc:**   
-`less /etc/passwd(each line is a new user)`    
-
-**Change pc name:**   
-`sudo hostname <new_hostname>`    
-`sudo nano /etc/hostname`     
-`sudo nano /etc/hosts`     
-
-**Packages(guide):**    
-package mangament system (tools and formats to install,update,uninstall apps in linux)    
-
-*types of packages*    
-1. DPKG – Debian Package Management System for the Debian Linux family. uses .deb files for installation   
-   * APT (Advanced Packaging Tool), is a powerful command line interface for dpkg   
-   * Synaptic/software store/discover are GUI for dpkg
-2.RPM - Redhat Package Manager
-   * YUM(Yellowdog Updater Modifed) powerful command line interface for rpm
-   * DNF(Dandified Yum) new version of Yum default in latest distros of red hat. uses .rpm files for installation
-3.Pacman-(arch) is the default package manager in Arch based linux distro's 
-
->Snap for ubuntu with all dependencies(most popular)  
-appimage(like snap) for all distros(preferrable)  
-flatpak for fedora and all distros  
-
-Personal Package Archives(ppa):  
-used to publish your application to ubuntu repository and installable via apt  
-add ppa for software source link
->sudo add-apt-repository ppa:source link  
-
-to remove those ppa  
->sudo add-apt-repository --remove ppa:source  
-
-fix apt through : sudo apt update --fix-missing
-
-**To install Kde in ubuntu 18**  
->sudo apt update  
->sudo apt upgrade  
->sudo apt dist-upgrade  
->sudo apt autoremove  
-or
->sudo apt update && apt upgrade && apt dist-upgrade && apt autoremove   
->sudo apt install kde-plasma-desktop  
-
-**list Desktop Environments**  
-`ls -l /usr/share/xsessions/`
-
-  
-**Removes Default Desktop Environment**
->sudo apt purge ubuntu-desktop ubuntu.desktop gnome-shell gnome-shell* gnome*
-
->sudo rm -rf /usr/share/xsessions/ubuntu.desktop   
->sudo rm -rf /usr/share/xsessions/ubuntu-communitheme-snap.desktop    
->sudo apt autoremove      
-
-**Install Brave Browser**   
-`sudo apt install apt-transport-https curl`
-
->curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
-
->echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-
->sudo apt update   
->sudo apt install brave-browser   
-
-  
-**Adding ppa for various softwares**    
->Add One by One
-
-`sudo apt-add-repository ppa:teejee2008/ppa`  
-
-`sudo add-apt-repository ppa:graphics-drivers/ppa`    
-check the latest driver version (`sudo apt install nvidia-driver-`) press tab to see available versions and fill with highest version
-
-`sudo add-apt-repository ppa:rvm/smplayer`
-
-`sudo add-apt-repository ppa:deadsnakes/ppa`
-
-`sudo apt-get update`
-
-  
-**Necessary Packages**(available in Repository)    
-`sudo apt install pavucontrol cpu-checker qemu-kvm bridge-utils timeshift samba git-all conky-all saytime synaptic ubuntu-restricted-extras gdebi libqt5svg5 qml-module-qtquick-controls clementine yakuake copyq net-tools ifupdown qbittorrent plasma-widgets-addons plasma-nm libgtk2.0-0:i386 libgdk-pixbuf2.0-0:i386 espeak-ng meld `    
-
-Download ocs-url from internet in deb package and install      
-**snap pacakages needed**     
->sudo snap install  android-studio  --classic       
->sudo snap install code --classic       
-# UI Setup:
- 
-**stop plasma and restart**     
->kquitapp5 plasmashell   
->kstart5 plasmashell     
-
-**Theme guide:**     
-    start with the wallpapers-->Desktop UI-->Icons-->Themes-->Apps-->App Themes-->Consistent look(transperant,hue,dark)
-    
-## Settings:    
-### Appearance:     
-* **Workspace Theme:**    
-  1. look and feel:    
-            Name: Qogir-light/Aritim-dark  
-            Location: .local/share/plasma/    
-  2. Desktop Theme:   
-            Name: Qogir/Qogir-dark
-            Location: .local/share/plasma/desktop/
-  3. Cursor Theme:
-            Name: PearDarkCursors
-  4. Splash Screen:
-            Name: Qogir-light
-            Location: .local/share/plasma/
-* **Colors:**
-        Name:Qogirlight/inverse-dark
-        Location: .local/share/color-schemes
-* **Fonts:**
-        Name: Manjari 12pt
-* **Icons:**
-        Name: Flat-remix-blue    
-        Location: .local/share/icons
-* **Application Style**
-  1. Widget style:
-            Name: Breeze
-            settings: Transperancy change
-            Main toolbar : Below Icons
-            Secondary : Beside icons
-  2. Window Decoration:
-            Name: Aritim light/Aritim Dark
-            Location: .local/share/aurorae/themes
-            buttons: menu, keepabove others
-  3. Gtk style:
-            Name: Aritim Dark
-            Icon: flat remix
-            Cursor theme: PearDarkCursors
-
-### WorkSpace:
-* **Desktop Behaviour**
-  1. Desktop Effects:
-            Background Contrast
-            Blur
-            Desaturate unresponsive application
-            Desktop cube
-            Desktop cube animation
-            Dim screen for administrator mode
-            Eye on screen
-            Fading popups
-            Flip Switch
-            Glide
-            Login
-            Logout
-            Magic lamp
-            Maximize
-            Mouse click animation
-            Rubberband Maximize
-            Slide back
-            Sliding popups
-            Sliding tooltips
-            Translucency
-* **Windows Management**
-  1. Window Behaviour:
-            Focus: click
-            moving: geometry on
-  2. Task Switcher:
-            cover switch
-            recently used
-            others off
-* **Shortcuts:**
-    Clementine: music cut
-* Startup
-  1. Login Screen
-            theme peardarkcursors
-            location: /usr/share/sddm/themes
-            auto login
-  2. Desktop Session
-            end session
-            start new session
-* **Search:**   
-        File search:Disable
-
-### Personalization:
-* **Account Details:**
-        Disable all
-        Auto login
-* **Regional Settings:**
-        locale: indian format
-* **Applications:**
-        default applications:
-        web browser: Firefox
-        Launch Feedback: Blinking
-* **Accesibility:**
-        Bell: Custom Oxygen Sys Special modifier keys
-        Sticky keys ctrl,alt,shift
-        one press key and other later for a working combo
-        lock keys double press the key to activate it and key combo press the key again to
-        deactivate (don't turn off) don't turn this on
-        locking keys
-        lock activated or deactivated
-        use the system bell with a gesture
-
-### Network:
-(included in linux kernel no need of additional drivers)
-* **Connections:**
-        ipv4: 192.168.1.2
-        1.1.1.1
-        duplex: full
-        speed:1000
-  1. check network  
-        >ifconfig  
-
-        edit /etc/resolv.conf  
-        comment everything add   
-        >nameserver 1.1.1.1   
-        >nameserver 8.8.8.8  
-        >nameserver 9.9.9.9   
-
-        edit /etc/network/interfaces   
-        add  
-        >auto enp2s0  
-        >iface enp2s0 inet static   
-        >address 192.168.1.2    
-        >netmask 255.255.255.0    
-        >gateway 192.168.1.1    
-        >dns-nameservers 1.1.1.1 9.9.9.9 8.8.8.8       
-
-       **to restart network interface**    
-        >sudo ip a flush interfacename  
-        >sudo systemctl restart networking.service 
-
-        then use to turn on   
-        >sudo ifup interfacename   
-
-* **Settings:**
-        preferences: 2seconds all options
-        Cache: off
-        Browser identification:
-        add operating system: off
-
-### Hardware:
-* **Input Devices:**
-        Keyboard: Numlock On
-        Mouse:
-        double click to open
-        speed: 3
-        acceleration: flat
-* **Display and Monitor:**
-        60hz
-        Compositor:
-        4 points
-        accurate
-        opengl 3.1
-        automatic
-        only for shown windows
-* **Kde Connect:**
-        pair android phone on same network
-        send notifications , screen saver-->Off
-* **Drives:**
-  1. Mounting Drives:  
-    for all the devices attached and its details  
-    >sudo blkid     
-
-    edit this   
-    >sudo nano /etc/fstab    
-    >paste uuid=" " /mount location(preferred /mnt/C(directory name) ) ntfs users,defaults 0 0   
-
-  2. Network Sharing(samba):      
-    Take a drive and copy its location (C D mounted)    
-    To Restart:   
-    >sudo service smbd restart    
-
-    edit file      
-    >/etc/samba/smb.conf    
-
-    add these lines at the end of the file    
-    >[Name to be displayed for the user ]   
-    >path = Path of the folder to share      
-    >writeable = yes(permission)     
-    >browseable = yes(permission)         
-    >comment = Sharing D drive(Description)      
-
-    Add a samba password to access on network       
-    >sudo ufw allow samba       
-    >sudo smbpasswd -a usernametologinby( to add new user)         
-
-    type the new password    
-    access on network with the user name and password    
-    restart service:   
-    >sudo service smbd restart   
-  3. Audio:    
-    edit this file    
-    >sudo nano /etc/pulse/daemon.conf         
-
-    paste these lines        
-    default-sample-format = float32le    
-    default-sample-channels = 2     
-    default-channel-map = front-left,front-right     
-    default-fragments = 2     
-    default-fragment-size-msec = 125     
-    resample-method = speex-float-10      
-    high-priority = yes      
-    nice-level = -11    
-    realtime-scheduling = yes     
-    realtime-priority = 9    
-    rlimit-rtprio = 9     
-    daemonize = no     
-    default-sample-rate = 48000     
-    alternate-sample-rate = 44100      
-    
-    This file also     
-    >sudo nano /etc/asound.conf    
-
-    add these lines     
-    >\#Use PulseAudio plugin hw    
-    >pcm.!default {     
-    >type plug     
-    >slave.pcm hw      
-    >} 
-
-    `pulseaudio -k` (to restart pavucontrol service)    
-
-## Applications UI:
-**Terminal:**    
->trigger blur effect and background transperancy     
->use monospaced fonts to have better ui     
->shortcut f10 for yakuake and ctrl alt t for konsole      
->manage profiles: use konsole profile     
->width 100    
->height 100      
->position middle    
->focus mouse on     
->shorcuts ctrl tab for session shift  
-
-**Desktop:**
->Configure desktop
-    folder view slideshow   
-    folder location   
-    align columns    
-    sorting type   
-    size 4   
-    tooltips   
-    preview panes all files   
-    desktop toolbox off   
-
-**Desktop configure:**   
-* add a new empty panel on top   
-    add widgets   
-    (in order to look good)   
-    * application dashboard:(shortcut alt+f1 for windows key)   
-            sort alphbetically   
-            all others off   
-    * global menu   
-        (push to the end for clean look)     
-    * panel spacer   
-    * network speed   
-            one above   
-            show upload      
-    * system tray:      
-  	audio    
-        bluetooth    
-        device    
-        kde connect    
-        network    
-        updates    
-        * Entries:    
-            bluetooth:hidden    
-            audio:shown    
-            networks:shown    
-    * digital clock:    
-        show seconds    
-        use 24 hour    
-        comicsans font    
-        show week numbers    
-        holidays    
-    * lock widgets    
-* add a side panel and add home icon to it
-    * add icon only task manager
-    * pin folder icon, firefox, brave, vs code
-    * recycle bin at the end    
-   
-## Software:
-
-1. Gparted(Works)
-2. Browsers:    
-    Use Firefox with the settings files and extension zip in it's profile location.     
-    Use Brave as Chrome Based Browser as alternative.   
-    * Brave:
-        1. settings:
-     	* open new tab page
-     	* use gtk(to be consistent with desktop ui)
-     	* use wideaddress bar
-     	* hide rewards
-     	* all logins off
-     	* all extension off
-     	* autocomplete search 
-     	* send private info off
-     	* send do not track
-     	* payment off
-     	* download location
-     	* background apps off
-     	* Extensions:(hide everything in menu)
-     		*   awesome screenshot
-     		*  browsec
-     		*  browser clean pro
-     		*	enhancer youtube:
-     			1. detach player on
-     			2. pin to bottom left
-     			3. remove ads,annotations
-     			4. enlarge player,pause background videos,quality 720p auto
-     			5. disable autoplay,enable theatre mode , comments,description
-     		*	google dictionary
-     		*	grammerly
-     		*	https
-     		*	keepa
-     		*	lastpass
-     		*	momentum:
-     			1. weather,focus,quotes	
-     		*	pop up blocker 
-     		*	selection context search:
-     			1. google,youtube,maps,wikipedia,amazon to show on menu
-     		*	tab session manager:
-     		*	ublock origin
-     		*	webrtc control
-     		*	wikiwand
-     		*	wot
-        1. rewards off
-
-3. nvidia drivers(nvidia-smi version check)
-4. Java
-    location of install
-    >/usr/lib/jvm/java-versionnumber-openjdk-amd64/bin/ 
-    
-    add it to Environment variables
-
-    >nano ~/.bashrc
-
-    (effects after logout and login) or use (`. ~/.bashrc`)
-
-    >export JAVA_HOME=/usr/lib/jvm/java-versionnumber-openjdk-amd64/   
-    >export PATH=$PATH:JAVA_HOME/bin   
-    
-    to verify
-    >echo \$JAVA_HOME   
-    >echo $PATH   
-
-5. Android
-    * check pc info
-        >egrep -c '(vmx|svm)' /proc/cpuinfo
-
-    * to add user to kvm group
-        >sudo adduser <username> kvm
-
-    * to take permission of kvm
-        >sudo chown <username> /dev/kvm
-
-        store all files in home/android/sdk folder   
-        setup finish and let it download all needed files   
-        go to avd manager and download two images one latest to work on one old to test on   
-        (android 10 and android 9)   
-        Pixel 2 android 10 device frame off   
-        pixel 2 android 9 device frame off   
-        create a desktop shortcut with android studio setting:   
-        * Configuring Studio(no need if installed with snap)   
-        export ANDROID=/opt/android-studio/   
-        export PATH=ANDROID/bin:$PATH   
-        this is the format to add any Environment variables   
-        into ~/.bashrc   
-6. copyq   
-   * preferences:   
-            autostart   
-            select with mouse   
-            paste   
-            windows insert shortcut for tray data   
-7. albert(everything alternative)   
-    * search files easy and fast   
-    >curl https://build.opensuse.org/projects/home:manuelschneid3r/public_key | sudo apt-key add -
-    
-    download albert deb package from [here](https://software.opensuse.org/download.html?project=home:manuelschneid3r&package=albert) then install with gdebi
-    * files index /home,/mnt,/opt,/usr,/var   
-8. pulseeffects   
-9. conky   
-    >wget --no-check-certificate https://github.com/teejee2008/conky-manager/releases/download/v2.4/conky-manager-v2.4-amd64.run   
-    >chmod +x conky-manager-v2.4-amd64.run   
-    >sudo ./conky-manager-v2.4-amd64.run   
-
-    paste conky custom file in .conky folder   
-10. Okulus/foxit(Default Pdf Reader,but foxit is a bit better)   
-11. Vscode:
-        install settings sync and paste this   
-        gist:c31cf461cee0ac43c2f6604cad9afe87   
-        token:6372bf5c8850949ffed188a5dc4c32edb2802929  
-12. Talking Clock:   
-    >run a cronjob to say time in telugu     
-    > date +"ఇపుడు సమయం, %_I గంటల %M నిమిషాలు" | espeak-ng -s 120 -p 75 -v te              
-13. qbittorrent
-        how splash
-        start qbittorent
-        minimize to tray
-        downloads folder qbittorent
-        use different port
-        tcp
-        max global 900
-        prefer encryption
-        anonymous mode
-        no queuing
-        torrent columns
-        name size done seeds peers down up eta
-14. clementine
-15. wireshark
-16. Vlc   
-    settings need to change 
-18. TeamViewer
-19. LibreOffice/MsOffice
-    install playonlinux and download 32bit 2007 msoffice with key   
-    install in playonlinux and run them twice. associate files to them and use normally.    
- 
-20. xdm
-    download and install        
-21. dolphin file manager        
-    folder size        
-    undo delete        
-22. yakuake        
-    f10 shortcut        
-23. activity watch
-        download latest and extract
-        starting ./aw-qt
-        running localhost:5600
-        autostart
-        in settings autostart select app
-        location/./aw-qt
-24. Peazip        
-    Download peazip gtk version of 64bit and install        
-    install following to make it display        
-    `sudo apt install libgtk2.0-0:i386 libgdk-pixbuf2.0-0:i386`        
-25.Smplayer    
-    one ini file mpv    
-    postprocessing driver gpu    
-    5.1 surround no pitch yes    
-    global volume off    
-    threads decoding 8    
-    hardware decoding on    
-    cache manual local to 30000    
-    show subtitle on screenshots    
-    encoding utf-8        
-    font manjari 30    
-    prevent window to get outside        
-    icon set breeze dark    
-    show only when moving the mouse to the bottom of screen onle    
-    one instance    
-    close ctrl+w    
-    ctrl left/right 1 minute    
-    mouse wheel volume    
-    playlist add files consecutive    
-    info auto auto sort        
-    .config/smplayer/themes themes downloaded    
-    breeze dark    
-
-26. Sublime text     
-    Install with snap and just change ui to light     
-    increase font and use it just for text editing     
-   
-27. PhotoShop
-	Install latest photoshop using the github [link](https://github.com/Gictorbit/photoshopCClinux)	
-	
-## Testing Softwares:
-* openvpn    
-* softether vpn new good
-* logme1n hamachi
-* protonvpn
-* wireguard
-* windscribe
-* i2p
-* cyberghost
-* purevpn
-* wine
-* lutrix
-* crossover
-* darling
-* affinity photo
-* corel draw suite
-* autodesk suite
+-   **Creating a new user:**  
+     `sudo adduser username`
 
+-   **Add user to root group:**  
+     `sudo usermod -aG sudo username`
 
+-   **Check users in the pc:**  
+     `less /etc/passwd(each line is a new user)`
 
+-   **Change pc name:**  
+     `sudo hostname <new_hostname>`  
+     `sudo nano /etc/hostname`  
+     `sudo nano /etc/hosts`
 
+-   **To list All Desktop Environments**  
+     `ls -l /usr/share/xsessions/`
 
+-   **To repair packages**  
+     `sudo dpkg --configure -a`
+
+-   **Update all the packages**
+
+```bash
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get dist-upgrade
+sudo apt-get autoremove
+sudo apt-get autoclean
+```
+
+## Packages
+
+The Main part of Linux being popular and helps open source is that we can package/build our applications in various formats.  
+Each O.S/linux distro supports one Package management system.  
+A package management system is used to install/update/uninstall applications.
+
+There are 4 types of packages. and depending on the manager all Linux distro's are grouped into these 4 management systems.
+
+These are the package management systems.
+
+### DEB files
+
+DPKG -> Debian Package Management System is used in distributions based on Debian.  
+In These distro's all the installation files have an extension .deb.  
+APT (Advanced Packaging Tool), is a powerful command-line interface for dpkg  
+We use apt for installing most of our software in Debian/Ubuntu-based distro's.
+
+#### Personal Package Archives(ppa):
+
+In the ubuntu based distro's, we might need software that is not available in the official repositories to install.  
+In those situations we can link to a third-party repository, this is done by linking to their PPA.  
+we add PPA of the software we want to install
+
+`sudo add-apt-repository PPA: source link` creates a link to the archive.  
+`sudo apt-get update` updates our repo with all the latest applications in official and third-party archives.  
+`sudo add-apt-repository --remove PPA: source link` will remove the link to the archive.
+
+some times we get errors during updating or installing software, to fix them using `sudo apt update --fix-missing`
+
+### RPM files
+
+RPM -> Redhat Package Manager is used in distributions based on red hat O.S.  
+In these distro's all the installation files have an extension of .rpm
+YUM(Yellowdog Updater Modified) is an old yet powerful command-line interface for rpm  
+DNF(Dandified Yum) is the latest command line intending to replace yum.
+We use yum/DNF to install the software in Redhat/cent os based distro's.
+
+### Compile from source
+
+Few distributions don't use any package manager or don't need one.  
+These distro's mostly install software by compiling them from the source code.  
+The most common distribution that compiles everything from source is arch Linux.  
+Arch uses **Pacman** as the package manager.
+
+### Universal packages
+
+In the last 3 years, there was a movement to create an application once and run it in all the different distributions without any errors.  
+There are 3 different universal package types, each supporting by most and all the distro's in 2021.
+
+1. snap: ubuntu created this format and comes by default in ubuntu distros.
+2. flatpak: fedora created this format and comes by default in the Fedora distros.
+3. app image is another open-source universal package, unlike the above two packages, this package doesn't need installation, it can be run directly with the file called an app image.
+
+**First Change the Environment UI**
+
+-   **To Stop and restart plasmashell**  
+     `kquitapp5 plasmashell`  
+     `kstart5 plasmashell`
+
+-   **Theme guide:**
+-   First Search and Download the **Wallpapers** you want for the desktop.
+-   Then Go to **Desktop Settings** and change it to your liking.
+-   Now go to **Settings** application and configure system UI.
+    -   Install **applications** you want and theme them accordingly.
+-   Final goal is to achieve **Consistent UI** throughout the System.
+
+## Settings Changes:
+
+-   **Appearance**
+    -   **Global Theme** -> whitesur dark
+    -   Location -> `~/.local/share/plasma/desktoptheme/theme-name` and `/usr/share/plasma/desktoptheme`  
+    -   to change use `kwriteconfig5 --file ~/.config/plasmarc --group Theme --key name theme-name`
+    -   **Plasma Style** -> breeze dark
+    -   Location -> `~/.local/share/plasma/look-and-feel/theme-name` and `/usr/share/plasma/look-and-feel`
+    - to change through command `lookandfeeltool -a theme-name`
+    -   **Application Style**
+    -   Application Style -> breeze
+    -   Configure Icons and toolbars: below icon, below icon 
+    -   window decorations -> aritim dark 
+    -   Location -> `~/.local/share/aurorae/themes/` and `/usr/share/kwin/decorations/`  
+    -   Titlebar buttons: logo,above others, minimize, maximize,close  
+    -   change from terminal `kwriteconfig5 --file ~/.config/kwinrc --group org.kde.kdecoration2 --key theme __aurorae__svg__cursor-value`
+    -   **Colors** -> mc sur dark 
+    -   Location `~/.local/share/color-schemes/color-schemes/color-name` and `/usr/share/color-schemes/`  
+    -   change file `~/.config/kdeglobals`  
+    -   from terminal `kwriteconfig5 --file ~/.config/kdeglobals --group General --key ColorScheme "Theme-name"`
+    -   **Fonts** - Fonts -> Change all fonts to comic sans with existing font size
+    -   Install **Operator Monospace ligatures** font, locate it in this directory and install it. - Change it in each editor with `font-family:'Operator mono lig'`
+        -   **Icons** -> white sur dark
+        -   Location -> `~/.local/share/icons/icons/icons-name` and `/usr/share/icons/`  
+        -   change from terminal `kwriteconfig5 --file ~/.config/kdeglobals --group Icons --key Theme "icons-name`
+    -   **Cursors** -> white sur cursors - Location: `~/.icons/`  
+    - located in `~/.icons/cursor-name` and `/usr/share/icons/`
+    - change from terminal `kwriteconfig5 --file ~/.config/kcminputrc --group Mouse --key cursorTheme cursor-value`
+    - **kvantum theme** 
+    - `kvantummanager --set themename`
+    - kvantum config detail file ./config/Kvantum/kvantum.kvconfig
+    - **splash screen**  
+    - located in `~/.local/share/plasma/lookandfeel/theme-name` and `/usr/share/plasma/look-and-feel/`  
+    - change from terminal `kwriteconfig5 --file ~/.config/kwinrc --group KSplash --key Theme value`  
+    - **plasmoids(widgets/applets)**  
+    the user installed widgets for small tasks/trigger relaying on big things.like weather,calendar
+    - located in `~/.local/share/plasma/plasmoids/` and `/usr/share/plasma/plasmoids/`
+    - **applicationStyle**  
+    - change from terminal `kwriteconfig5 --file ~/.config/kdeglobals --group KDE --key widgetStyle "style-name"`
+
+-   **Workspace**
+
+-   **Workspace Behavior**
+-   Don't display informational tooltips
+-   double click to open files
+    -   **Desktop Effects** - Zoom
+-   Background Contrast - Blur
+-   De-saturate unresponsive application - Fading popups
+-   Full screen - Login
+-   logout
+
+    -   maximize
+    -   rubberband maximize(install this)
+    -   screen edge
+    -   sliding popups
+    -   translucency
+    -   magic lamp
+    -   dialog parent
+    -   Dim screen for administrator mode
+    -   Desktop cube animation
+    -   Desktop grid - present windows
+    -   glide
+    -   **Screen Edges**
+    -   left top -> application launcher - right bottom -> desktop grid
+    -   **Virtual Desktops**
+    -   Two Desktops
+    -   **Window Behavior**
+    -   Show window geometry
+    -   **Task Switcher**
+    -   MediumRounded(install this)
+    -   **Shortcuts**  
+         Here are the shortcuts to disable, meaning remove any shortcuts linked to them
+
+        -   Disable emoji selector
+
+    -   Disable Accessibility
+    -   Disable activity manager
+    -   Disable all microphone sound options
+    -   Disable all KDE Deamon options
+    -   Disable Keyboard layout switcher
+    -   Disable the touchpad option
+
+            Here are the shortcuts(all) for each setting, if separated by a comma there is more than one way to activate a particular shortcut.
+
+        -   System settings -> meta+I
+        -   Calculator -> fn+f12 calculator button
+        -   Clementine -> fn+f9 tools button - stop after this track -> fn+f6 media stop button - don't apply any other media controls we can control other players with media buttons
+            -   konsole terminal -> ctrl+alt+t
+            -   system monitor -> ctrl+shift+esc, fn+f11
+            -   KRunner -> alt+space
+            -   KRunner run command with clipboard contents -> ctrl+alt+space
+
+    -   KWin: - all other options are disabled
+
+        -   close window -> alt+f4
+            -   Keep window above others -> meta+alt+num 5
+            -   Maximize-> meta+num 5
+            -   Minimize window-> meta+num 0
+            -   Quick Tile window to bottom left-> meta+num 1
+            -   Quick Tile window to bottom-> meta+num 2
+            -   Quick Tile window to bottom right-> meta+num 3
+            -   Quick Tile window to left-> meta+num 4
+            -   Quick Tile window to right-> meta+num 6
+            -   Quick Tile window to top left-> meta+num 7
+            -   Quick Tile window to top-> meta+num 8
+            -   Quick Tile window to top right-> meta+num 9
+            -   Show Desktop -> meta+D
+            -   Hide Window Border -> meta+`
+            -   Switch to next desktop -> meta+tab
+            -   Toggle present windows in all desktop -> meta+num .
+            -   Walk through windows -> alt+tab
+            -   Walk through windows in reverse -> alt+shift+tab
+            -   window operations menu -> alt+f3
+            -   Window to next desktop -> meta+alt+right
+            -   Windows to previous desktop -> meta+alt+left
+            -   Zoom in -> meta+=
+            -   Zoom out -> meta+-
+        -   Plasma:
+            -   Activate application launcher widget: alt+f1,windows key
+            -   Activate task manager entry 1 -> Meta+1(opens/minimizes the first application in task bar application layout)
+            -   Activate task manager entry 2 -> Meta+2
+            -   Activate task manager entry 3 -> Meta+3
+            -   Activate task manager entry 4 -> Meta+4
+            -   Activate task manager entry 5 -> Meta+5
+            -   Activate task manager entry 6 -> Meta+6
+            -   Activate task manager entry 7 -> Meta+7
+            -   Activate task manager entry 8 -> Meta+8
+            -   Activate task manager entry 9 -> Meta+9
+        -   Power:
+            -   Power down and power off are only turned on.
+        -   Session:
+            -   Lock session -> Meta+l
+            -   log out -> ctrl+alt+del
+        -   Edit:
+            -   Copy -> ctrl+c
+            -   cut -> ctrl+x
+            -   paste -> ctrl+v
+            -   delete backward word -> ctrl+backspace
+            -   delete forward word -> ctrl+delete
+            -   find -> ctrl+f
+            -   find next -> f3
+            -   find previous -> shift+f3
+            -   undo -> ctrl+z
+            -   redo -> ctrl+y
+            -   select all -> ctrl+a
+            -   create folder -> ctrl+shift+n
+        -   file:
+            -   close file -> ctrl+w
+            -   permanent delete -> shift+del
+            -   move to trash -> del
+            -   open -> ctrl+o
+            -   print -> ctrl+p
+            -   rename -> f2
+            -   save -> ctrl+s
+            -   save as -> ctrl+shift+s
+        -   navigation:
+            -   back -> alt+left, back(mouse button)
+            -   backward word -> ctrl+left
+            -   begin -> ctrl+home
+            -   beginning of line -> home
+            -   end -> ctrl+end
+            -   end of line -> end
+            -   forward word -> ctrl+right
+            -   home -> alt+home, homepage
+            -   next -> pagedown
+            -   next item in list -> down
+            -   previous item in list -> up
+            -   prior -> pageup
+            -   quit -> quit
+            -   refresh -> refresh, f5
+        -   settings
+            -   configure application -> ctrl+alt+`
+        -   view
+            -   show menu bar -> ctrl+m
+            -   show hidden files -> ctrl+h
+            -   zoom in -> ctrl+=,ctrl++
+            -   zoom out -> ctrl+-
+
+    -   **Startup and shutdown**
+        -   Login screen -> Mc sur dark
+        -
+        -   Autostart:
+            -   copyq -> `copyq .` in terminal
+            -   yakuake
+            -   conky
+        -   Desktop session: start a empty session
+    -   **Search**
+        -   Disable file search
+        -   krunner
+            -   location center
+        -   web search off
+
+-   **Personalization**
+
+-   **Applications**: - Launch Feedback: bouncing
+-   animation: 3 seconds
+-   Disable the KDE wallet subsystem.
+-   After doing this run `sudo apt-get install gnome-keyring`, KDE subsystem is a credential manager of sorts if we disable it we need to install something to act in its place.
+
+-   **Network**
+
+-   **Connections** - Ipv4 - DNS->1.1.1.1,9.9.9.9 - Address->192.168.0.2 - gateway->192.168.0.1
+-   **Settings**
+-   Cookies Disable
+-   Don't Send Identification
+
+-   **Hardware**
+-   **Input**
+-   **Keyboard**
+-   num lock on plasma startup - **Mouse** - Pointer speed 4 flat
+-   **Display and Monitor**
+-   **Compositor:**
+-   crisp - opengl 3.1 - automatic - only for shown windows - **Night Color** - Temp: 4400k - custom time-> 17:00,09:00,5 minutes transition
+-   **Kde connect** - All default settings
+-   **Removable Storage** - Enable automatic mounting of removable media
+-   **System Administration**  
+     Nothing to change here.
+
+## System Changes
+
+#### Network changes
+
+Run `ifconfig`  
+This should display the current network properties, if satisfied leave it as it is.  
+If not or need any changes do the following.
+
+Run `sudo nano /etc/resolve.conf` and comment on everything in it, might need it as a backup so don't delete existing data, just comment on them.
+
+Paste these lines in the file.
+
+```bash
+nameserver 1.1.1.1
+nameserver 8.8.8.8
+nameserver 9.9.9.9
+```
+
+Run `sudo nano /etc/network/interfaces` and comment everything.  
+Add these lines at the end of the file.
+
+```bash
+# enp2s0 is the network adapter name from ifconfig command
+auto enp2s0
+iface enp2s0 inet static
+address 192.168.0.2
+netmask 255.255.255.0
+gateway 192.168.0.1
+dns-nameservers 1.1.1.1 9.9.9.9 8.8.8.8
+```
+
+If the network properties in the settings application work correctly, we don't need to perform the above actions.
+
+**To restart network interface**
+
+```bash
+sudo ipflush interface-name
+sudo systemctl restart networking.service
+sudo ifup interface-name
+```
+
+#### Drives
+
+To view all the attached devices details  
+`sudo blkid`
+
+**Mounting NTFS Drives**
+
+`sun nano /etc/fstab`  
+add these lines
+`uuid=" " /mount location(preferred /mnt/C(directory name) ) ntfs users,defaults 0 0`
+
+**Sharing Drive over network**
+
+Network Sharing(samba):
+To Restart samba:  
+`sudo service smbd restart`
+
+To share a drive first mount it to a location and copy it(C D mounted)  
+run `sudo nano /etc/samba/smb.conf`  
+add these lines at the end of the file
+
+```bash
+[Name to be displayed for the user ]
+path = Path of the folder to share
+writeable = yes(permission)
+browseable = yes(permission)
+comment = Sharing D drive(Description)
+```
+
+Add a samba password to access on a network
+
+`sudo ufw allow samba`  
+`sudo smbpasswd -a usernametologinby( to add new user)`
+
+type the new password
+we can access the drive on a network with the user name and password
+restart the service with `sudo service smbd restart`
+
+#### Audio modifications
+
+The default audio of KDE is good but some tweaks can be made to make it better.
+
+run `sudo nano /etc/pulse/daemon.conf`  
+paste these lines
+
+```bash
+default-sample-format = float32le
+default-sample-channels = 2
+default-channel-map = front-left,front-right
+default-fragments = 2
+default-fragment-size-msec = 125
+resample-method = speex-float-10
+high-priority = yes
+nice-level = -11
+realtime-scheduling = yes
+realtime-priority = 9
+rlimit-rtprio = 9
+daemonize = no
+default-sample-rate = 48000
+alternate-sample-rate = 44100
+```
+
+run `sudo nano /etc/asound.conf`  
+add these lines
+
+```bash
+\#Use PulseAudio plugin hw
+pcm.!default {
+type plug
+slave.pcm hw
+}
+```
+
+restart the service with `pulseaudio -k`
+
+### Applications Setup
+
+**Konsole/Terminal**
+
+trigger blur effect and background transparency  
+use monospaced fonts to have better UI  
+shortcut f10 for yakuake and ctrl alt t for konsole  
+manage profiles: use Konsole profile  
+width 100  
+height 100  
+position middle  
+focus mouse on  
+shortcuts ctrl tab for session shift
+
+**Configure desktop**
+
+folder view slideshow  
+folder location  
+align columns  
+sorting type  
+size 4  
+tooltips  
+preview panes all files  
+desktop toolbox off
+
+**Panel Configuration**
+
+-   add a new empty panel on top  
+     add widgets  
+     (to look good)
+-   application dashboard:(shortcut alt+f1 for windows key)  
+     sort alphabetically  
+     all others off
+-   global menu  
+     (push to the end for a clean look)
+-   panel spacer
+    -   network speed  
+         one above  
+         show upload
+-   system tray:  
+     audio  
+     bluetooth  
+     device  
+     kde connect  
+     network  
+     updates
+-   Entries:  
+     bluetooth:hidden  
+     audio:shown  
+     networks:shown
+-   digital clock:  
+     show seconds  
+     use 24 hour  
+     comicsans font  
+     show week numbers  
+     holidays
+    -   lock widgets
+-   add a side panel and add the home icon to it
+-   add icon only task manager
+-   pin folder icon, firefox, brave, vs code
+-   recycle bin at the end
+-   Install **window buttons applet** by downloading the file from the KDE store and running the install script.
+-   follow the installation instructions.
+-   active window is maximized
+-   disable borders for maximized windows
+
+**chrome**  
+The best browser on all platforms.  
+Install it by downloading the deb package from internet and installing it with `sudo apt-get install ./google-chrome-stable_current_amd64.deb`  
+Log in with your Google account and sync your settings then logout to disable tracking.
+
+**Clementine**
+opensource music player
+Install -> `sudo apt-get install clementine`
+Settings to change
+
+-   crossfade tracks
+-   save ratings to file
+-   use global shortcuts
+-   columns in the display are
+-   title, artist, album, album artist, genre, play count
+
+**Copyq**  
+clipboard manager  
+Install -> `sudo apt-get install copyq`  
+Settings to change
+
+-   autostart
+-   select with the mouse
+-   windows insert shortcut
+
+**conky**  
+conky is a performance monitoring tool  
+Install -> `sudo apt-get install conky-all`  
+paste the pre-edited custom conky file in home directory with name .conkyrc
+
+verify by running `conky` in the terminal.
+
+To autostart conky, go to settings and paste `/usr/bin/conky` as the application name. it works.
+
+**eclipse ee**  
+Java IDE  
+Install by downloading the eclipse installer.  
+unzip it and run install.sh file, select eclipse EE as it contains everything related to java projects.
+
+Settings to change
+
+**electronmail**  
+protonmail client  
+Install -> `sudo snap install electron-mail`
+
+**filelight**  
+Storage explorer, tells the storage and files occupied in a single drive.  
+Install -> `sudo apt-get install filelight`
+
+**firefox**  
+Best open-source browser
+install -> `sudo apt-get install firefox`  
+Settings to change
+
+-   install the ad-blocker extension and select download location
+-   Rest are your preference
+
+**Fonts to install**  
+For good development easy to read fonts and ligatures become very handy.  
+Two of the popular fonts to try and use are Firacode and operator mono.  
+Install **firacode** -> `sudo apt-get install fonts-firacode`  
+Install **operator mono ligature** font by installing the .otf file.  
+After installing we have to select them in our code editor.  
+In vscode it is font-family:'opeartor mono lig','firacode'
+
+**git**  
+Most used version control system.  
+Install -> `sudo apt-get install git-all`
+
+**Java**  
+By default no java version is installed, we have two options install oracle JDK or OpenJDK.  
+My preference use oracle JDK, it has some proprietary packages that eclipse uses heavily.  
+Install by downloading the deb file of the oracle JDK version of your preference and running `sudo apt-get install ./jdk-11.0.10_linux-x64_bin.deb`
+
+The above command will install oracle JDK in `/usr/lib/JVM/` with version name as the folder name.
+
+To use without any errors we have to first register this installation and link it to the environment path.  
+Register the java path with the update-alternatives command.
+
+```bash
+sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-11.0.10/bin/java 1
+sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk-11.0.10/bin/javac 1
+sudo update-alternatives --install /usr/bin/javap javap /usr/lib/jvm/jdk-11.0.10/bin/javap 1
+sudo update-alternatives --install /usr/bin/javadoc javadoc /usr/lib/jvm/jdk-11.0.10/bin/javadoc 1
+```
+
+These commands will create a global link to our java binary files.
+
+Now create the environment variable of our java path.  
+run `nano ~/.bashrc`  
+Enter these lines at the end of the file
+
+```bash
+export JAVA_HOME=/usr/lib/jvm/java-versionnumber-openjdk-amd64/
+export PATH=$PATH:JAVA_HOME/bin
+```
+
+apply the variables with `. ~/.bashrc`
+
+verify java working by running these, if they show output then java installation is successful
+
+```bash
+echo \$JAVA_HOME
+echo $PATH
+java --version
+```
+
+**kcalc**  
+kde scientific calculator  
+Install -> `sudo apt-get install kcalc`
+
+**KDE partition**  
+Gparted alternative for kde  
+Install -> `sudo apt-get install partitionmanager`
+
+**kolourpaint**  
+Ms paint for kde  
+Install -> `sudo apt-get install kolourpaint`
+
+**Microsoft Teams**  
+zoom alternative for Linux with more features and developed by Microsoft  
+Install -> `sudo snap install teams`
+
+**nettools,ifupdown**  
+network managing and monitoring tools  
+Install -> `sudo apt-get install net-tools ifupdown`
+
+**Nvidia drivers**  
+Nvidia drivers are proprietary blob drivers so need to add a PPA.
+Install ->
+
+```bash
+sudo add-apt-repository ppa:graphics-drivers/ppa
+sudo apt-get update
+sudo apt install nvidia-driver-<versionnumber>
+#press tab to see available versions and fill with highest version
+```
+
+Verify successful installation by rebooting and typing `Nvidia-smi` in the terminal.
+
+**ocs-URL**  
+OCS URL is a URL mapping tool used to download and install files/themes/icon packs/applications from the internet.  
+Install by downloading the ocs url deb package and install with `sudo apt-get install ./ocs-url_3.1.0-0ubuntu1_amd64.deb`
+
+**Pavucontrol**  
+audio device manager for KDE comes by default if not install.  
+Install -> `sudo apt install pavucontrol`
+
+**plasma widgets and tools**  
+Widget tools for kde  
+Install -> `sudo apt-get install plasma-widgets-addons plasma-nm`
+
+**Python3**  
+By default, there is a python 3 installed with ubuntu, but if we need an old or new version then we can install it by adding a PPA.  
+Install -> `sudo add-apt-repository ppa:deadsnakes/ppa`, `sudo apt-get install python3.<versionnumber>`
+
+**qbittorrent**  
+Best torrent client for Linux and windows  
+Install -> `sudo apt-get install qbittorrent`  
+Settings to change
+
+-   show splash
+-   minimize to tray
+-   downloads folder qbittorent
+-   use a different port
+-   TCP
+-   max global 900
+-   prefer encryption
+-   anonymous mode
+-   no queuing
+-   torrent columns
+-   name size has done seeds peers down up eta ratio
+
+**Samba**  
+Samba is a protocol used for sharing drives over a network  
+Install -> `sudo apt-get install samba`  
+The configuration is provided in the drive section.
+
+**Smplayer**  
+best media player according to me
+install ->
+
+```bash
+sudo add-apt-repository PPA:rvm/smplayer
+sudo apt-get update
+sudo apt-get install smplayer smplayer-themes
+```
+
+settings to change
+
+-   media engine -> mplayer
+-   settings in one ini file
+-   enable postprocessing by default
+-   start videos in fullscreen
+-   high speed playback withtout alatering pitch
+-   max volume 100
+-   channels by default 5.1
+-   global volume off
+-   hardware decoding auto
+-   threads decoding 8
+-   cache manual local to 30000
+-   include subtitle on screenshots
+-   encoding utf-8
+-   font operator 30
+-   icon set breeze dark
+-   style breeze
+-   show only when moving the mouse to the bottom of screen
+-   display compact mode
+-   one instance
+-   shortcuts:
+-   left click -> pause
+-   right click -> options
+-   middle click -> playlist
+-   wheel -> volume control
+-   drag -> none
+-   volume down-> down arrow
+-   volume up-> up arrow
+-   audio delay decrease -> [
+-   audio delay increase -> ]
+-   subtitle delay decrease -> ,
+-   subtitle delay increase -> .
+-   close app -> ctrl+w
+-   +10 second -> right
+-   -10 seconds-> left
+-   -1 minute -> ctrl+left
+-   +1 minute -> ctrl+right
+-   normal speed -> v
+-   10%+ speed -> c
+-   10%- speed -> x
+-   add files to playlist -> videos
+-   add files recursively
+-   auto sort
+-   monitor 16:9
+
+**Spotify**  
+Music Streaming application  
+Install -> `sudo snap install Spotify`
+
+**TeamViewer**  
+Remote Desktop control application  
+Install by downloading the deb file and installing with `sudo apt-get install ./teamviewer.deb`
+
+**Timeshift**  
+A tool to back up and create a snapshot of the system used to restore the system on a crash.
+Install ->
+
+```bash
+sudo apt-add-repository ppa:teejee2008/ppa
+sudo apt-get update
+sudo apt-get install timeshift
+```
+
+**Ubuntu extras**  
+Some proprietary codecs and tools for ubuntu.  
+Install -> `sudo apt-get install ubuntu-restricted-extras`
+
+**Vlc**  
+best open source media player  
+install -> `sudo apt-get install vlc`
+
+**vscode**  
+Best Code editor which supports multiple programming languages.  
+Install by downloading the latest deb file and installing with `sudo apt-get install ./code_1.53.1-1612827767_amd64.deb`  
+after installing connect your GitHub account to sync your settings.
+
+**WPS office**  
+Office suite for Linux, the best alternative for ms office in Linux.  
+Install by downloading the deb file from the WPS website and installing it with `sudo apt-get install ./wps-file.deb`
+
+**yakuake**  
+a drop-down terminal designed to work with KDE.  
+Install -> `sudo apt-get install yakuake`  
+Settings to change
+
+-   don't show tray icon
+-   show tab bar
+-   change the shortcuts
+    -   close session -> ctrl+w
+    -   next session -> ctrl+tab
+    -   new session -> ctrl+T
+    -   find -> ctrl+f
+    -   copy -> ctrl+shift+c
+    -   paste -> ctrl+shift+v
+    -   find next -> f3
+    -   find previous -> shift+f3
+    -   split terminal top/bottom -> ctrl+]
+    -   split terminal left/right -> ctrl+[
+-   Create a new profile
+    -   breeze appearance
+    -   transparency 25%
+    -   dejavu sans 12 font
+    -   i beam cursor
+    -   blinking enabled
+    -   unlimited scrolling
+    -   middle click paste clipboard
+    -   copy on select
+    -   trim leading and trailing spaces
+    -   open links with direct click
+    -   underline files
+    -   character encoding utf-8
+
+**zoom**  
+conference video call application  
+Install -> `sudo snap install zoom-client`

@@ -1,0 +1,84 @@
+ 
+conky.config  = {
+---------------------
+-- Generic Settings
+---------------------
+background= true,
+update_interval= 0.3,
+double_buffer = true,
+no_buffers = true,
+imlib_cache_size=0,
+
+draw_shades= false,
+draw_outline =false,
+draw_borders= false,
+
+-----------
+--Window Specifications:
+-----------
+gap_x =10,
+gap_y =1,
+
+alignment = 'bottom_right',
+
+maximum_width = 400,
+minimum_height = 400,
+
+own_window= true,
+own_window_hints ="undecorated,below,sticky,skip_taskbar,skip_pager",
+own_window_type = "dock" ,
+own_window_transparent = true,
+
+own_window_argb_value= 0,
+own_window_argb_visual =true,
+-----------------------
+-- Text Settings
+-----------------------
+
+use_xft = true,
+xftalpha =1,
+font="DejaVuSans:size=12",
+text_buffer_size =512,
+override_utf8_locale =true,
+
+
+
+
+total_run_times= 0,
+stippled_borders= 0,
+border_width= 1,
+default_color= white,
+
+uppercase =false,
+cpu_avg_samples =4,
+net_avg_samples= 2,
+use_spacer ="right",
+
+
+
+}
+
+
+
+conky.text = [[
+${alignr} CPU Freq  : ${freq_g cpu0} GHz 
+${alignr} CPU usage : ${cpu cpu0}%
+${alignr}Core1: ${cpu cpu1}%
+${voffset -18} ${alignr 100}${cpubar cpu1 5,110}
+${alignr}Core2: ${cpu cpu2}%
+${voffset -18}${alignr 100}${cpubar cpu2 5,110}
+${alignr}Core3: ${cpu cpu3}%
+${voffset -18}${alignr 100}${cpubar cpu3 5,110}
+${alignr}Core4: ${cpu cpu4}%
+${voffset -18}${alignr 100}${cpubar cpu4 5,110}
+${voffset -1}${alignr 1}${voffset }${cpugraph 54,130 ${template2}}
+${alignr}Root:  ${fs_used /}/${fs_size /}
+${alignr}Home:  ${fs_used /home}/${fs_size /home} 
+${alignr}GPU Temp: ${color9}${execi 5 nvidia-settings -q  [gpu:0]/gpucoretemp -t}°C ${color1}
+${alignr}Fan Speed: ${color9}${execi 5 nvidia-settings -q [fan:0]/GPUCurrentFanSpeed -t}%
+${alignr}GPU: ${exec nvidia-settings -tq GPUUtilization | awk -F '[,= ]' '{ print $2 }'} %
+${alignr}Mem Used:  ${execi 5 nvidia-settings -q [gpu:0]/UsedDedicatedGPUMemory -t} / ${exec nvidia-settings -q [gpu:0]/TotalDedicatedGPUMemory -t} MB
+${alignr} RAM: $memperc% ($mem / $memmax)
+${alignr}Swap: $swapperc% ($swap / $swapmax)
+${alignr}${font} Uptime: ${alignr}${uptime}]]
+ 
