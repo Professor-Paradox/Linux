@@ -107,42 +107,43 @@ There are 3 different universal package types, each supporting by most and all t
 ## Settings Changes:
 
 -   **Appearance**
+
     -   **Global Theme** -> whitesur dark
-    -   Location -> `~/.local/share/plasma/desktoptheme/theme-name` and `/usr/share/plasma/desktoptheme`  
+    -   Location -> `~/.local/share/plasma/desktoptheme/theme-name` and `/usr/share/plasma/desktoptheme`
     -   to change use `kwriteconfig5 --file ~/.config/plasmarc --group Theme --key name theme-name`
     -   **Plasma Style** -> breeze dark
     -   Location -> `~/.local/share/plasma/look-and-feel/theme-name` and `/usr/share/plasma/look-and-feel`
-    - to change through command `lookandfeeltool -a theme-name`
+    -   to change through command `lookandfeeltool -a theme-name`
     -   **Application Style**
     -   Application Style -> breeze
-    -   Configure Icons and toolbars: below icon, below icon 
-    -   window decorations -> aritim dark 
-    -   Location -> `~/.local/share/aurorae/themes/` and `/usr/share/kwin/decorations/`  
-    -   Titlebar buttons: logo,above others, minimize, maximize,close  
+    -   Configure Icons and toolbars: below icon, below icon
+    -   window decorations -> aritim dark
+    -   Location -> `~/.local/share/aurorae/themes/` and `/usr/share/kwin/decorations/`
+    -   Titlebar buttons: logo,above others, minimize, maximize,close
     -   change from terminal `kwriteconfig5 --file ~/.config/kwinrc --group org.kde.kdecoration2 --key theme __aurorae__svg__cursor-value`
-    -   **Colors** -> mc sur dark 
-    -   Location `~/.local/share/color-schemes/color-schemes/color-name` and `/usr/share/color-schemes/`  
-    -   change file `~/.config/kdeglobals`  
+    -   **Colors** -> mc sur dark
+    -   Location `~/.local/share/color-schemes/color-schemes/color-name` and `/usr/share/color-schemes/`
+    -   change file `~/.config/kdeglobals`
     -   from terminal `kwriteconfig5 --file ~/.config/kdeglobals --group General --key ColorScheme "Theme-name"`
     -   **Fonts** - Fonts -> Change all fonts to comic sans with existing font size
     -   Install **Operator Monospace ligatures** font, locate it in this directory and install it. - Change it in each editor with `font-family:'Operator mono lig'`
         -   **Icons** -> white sur dark
-        -   Location -> `~/.local/share/icons/icons/icons-name` and `/usr/share/icons/`  
+        -   Location -> `~/.local/share/icons/icons/icons-name` and `/usr/share/icons/`
         -   change from terminal `kwriteconfig5 --file ~/.config/kdeglobals --group Icons --key Theme "icons-name`
-    -   **Cursors** -> white sur cursors - Location: `~/.icons/`  
-    - located in `~/.icons/cursor-name` and `/usr/share/icons/`
-    - change from terminal `kwriteconfig5 --file ~/.config/kcminputrc --group Mouse --key cursorTheme cursor-value`
-    - **kvantum theme** 
-    - `kvantummanager --set themename`
-    - kvantum config detail file ./config/Kvantum/kvantum.kvconfig
-    - **splash screen**  
-    - located in `~/.local/share/plasma/lookandfeel/theme-name` and `/usr/share/plasma/look-and-feel/`  
-    - change from terminal `kwriteconfig5 --file ~/.config/kwinrc --group KSplash --key Theme value`  
-    - **plasmoids(widgets/applets)**  
-    the user installed widgets for small tasks/trigger relaying on big things.like weather,calendar
-    - located in `~/.local/share/plasma/plasmoids/` and `/usr/share/plasma/plasmoids/`
-    - **applicationStyle**  
-    - change from terminal `kwriteconfig5 --file ~/.config/kdeglobals --group KDE --key widgetStyle "style-name"`
+    -   **Cursors** -> white sur cursors - Location: `~/.icons/`
+    -   located in `~/.icons/cursor-name` and `/usr/share/icons/`
+    -   change from terminal `kwriteconfig5 --file ~/.config/kcminputrc --group Mouse --key cursorTheme cursor-value`
+    -   **kvantum theme**
+    -   `kvantummanager --set themename`
+    -   kvantum config detail file ./config/Kvantum/kvantum.kvconfig
+    -   **splash screen**
+    -   located in `~/.local/share/plasma/lookandfeel/theme-name` and `/usr/share/plasma/look-and-feel/`
+    -   change from terminal `kwriteconfig5 --file ~/.config/kwinrc --group KSplash --key Theme value`
+    -   **plasmoids(widgets/applets)**  
+        the user installed widgets for small tasks/trigger relaying on big things.like weather,calendar
+    -   located in `~/.local/share/plasma/plasmoids/` and `/usr/share/plasma/plasmoids/`
+    -   **applicationStyle**
+    -   change from terminal `kwriteconfig5 --file ~/.config/kdeglobals --group KDE --key widgetStyle "style-name"`
 
 -   **Workspace**
 
@@ -437,6 +438,91 @@ slave.pcm hw
 ```
 
 restart the service with `pulseaudio -k`
+
+### Bluetooth settings
+
+In a dual boot system, the device has to be reconnected every time we boot in to one of the os.  
+to stop that follow these.
+
+first disconnect the bluetooth device in linux and windows before starting the process.
+Then connect the bluetooth device first in linux then reboot to windows connect the device in windows and reboot to linux.
+
+-   install chntpw package for this purpose with `sudo apt-get install chntpw`
+-   mount the C drive of windows to linux, most probably already mounted check the drives list
+-   open a terminal and run these commands
+
+```bash
+cd /<windowsmountpoint>/Windows/System32/config
+# will open a directory similar to this.
+# the following command will connect to Windows Registry
+t@t-kde:/media/t/2A0C49BC0C498433/Windows/System32/config$ chntpw -e SYSTEM
+# chntpw version 1.00 140201, (c) Petter N Hagen
+# Hive <SYSTEM> name (from header): <SYSTEM>
+# ROOT KEY at offset: 0x001020 * Subkey indexing type is: 686c <lh>
+# File size 14680064 [e00000] bytes, containing 3020 pages (+ 1 headerpage)
+# Used for data: 228342/14280544 blocks/bytes, unused: 127/69408 blocks/bytes.
+# Simple registry editor. ? for help.
+# this will open the bluetooth device details
+cd CurrentControlSet\Services\BTHPORT\Parameters\Keys
+# if you get the output like
+# Key CurrentControlSet\Services\BTHPORT\Parameters\Keys not found!
+# try this command
+cd ControlSet001\Services\BTHPORT\Parameters\Keys
+# output should be similar to this
+# (...)\Services\BTHPORT\Parameters\Keys>
+# run ls to view the device details, it will show the mac address of the bluetooth adapter(save it somewhere for later use)
+ls
+# Node has 1 subkeys and 0 values
+# key name
+# <001a7dda7113>
+# cd into this directory and run ls for list of connected devices
+cd 001a7dda7113
+# (...)\Services\BTHPORT\Parameters\Keys\001a7dda7113>
+ls
+# Node has 0 subkeys and 1 values
+# size     type              value name             [value if type DWORD]
+# 16  3 REG_BINARY         <711c4b20c471>
+# this displays the mac address of bluetooth device in my case it is a bluetooth speaker(save it for later use)
+# decode the hex code attached to this device
+hex 711c4b20c471
+# Value <711c4b20c471> of type REG_BINARY (3), data length 16 [0x10]
+# :00000  8F C3 C4 A3 5E 1B 1C F5 D8 3C F4 EB 98 0C 53 A0 ....^....<....S
+# this will display the key(8F C3 C4 A3 5E 1B 1C F5 D8 3C F4 EB 98 0C 53 A0) used and stored inthe bluetooth speaker memory
+# the format is different from linux and windows on how the key is stored in linux there are no spaces between character so edit the key to look similar to this 8FC3C4A35E1B1CF5D83CF4EB980C53A0(save this)
+# if we add this key to our linux bluetooth keys list, we can connect to
+.the device in two O.S without reconnecting ever again
+# word of caution if we disconnect and reconnect in any one os the whole process has to start again so be careful.
+# exit the shell
+```
+
+at this stage the bluetooth device won't connect to O.s as it still has the windows pairing key so we just override our linux pairing key with windows pairing key
+
+now to edit the linux bluetooth pairing key
+
+```bash
+# my bluetooth adapter mac address -> 001a7dda7113
+# my speaker mac address -> 711c4b20c471
+# my windows speaker to bluetooth pairing key -> 8FC3C4A35E1B1CF5D83CF4EB980C53A0
+# go to bluetooth directory
+sudo su
+# the next action needs root privileges
+cd /var/lib/bluetooth
+# go to the bluetooth directory with the above mac address
+# the name and format of address and keys are different between windows and linux
+cd 00\:1A\:7D\:DA\:71\:13/
+# now go the bluetooth device in my case speaker directory
+ls
+# 71:1C:4B:20:C4:71  cache  settings
+cd 71\:1C\:4B\:20\:C4\:71/
+# there will be only one file info, edit this with nano
+nano info
+# in linkey change the value of key to windows pairing key
+# Key=8FC3C4A35E1B1CF5D83CF4EB980C53A0
+# now restart the bluetooth device
+systemctl restart bluetooth
+# connect to the existing paried device it should connect without any errors
+# check the same in windows also
+```
 
 ### Applications Setup
 
