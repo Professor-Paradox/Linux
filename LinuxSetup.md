@@ -430,14 +430,14 @@ run `sudo nano /etc/asound.conf`
 add these lines
 
 ```bash
-\#Use PulseAudio plugin hw
+#Use PulseAudio plugin hw
 pcm.!default {
 type plug
 slave.pcm hw
 }
 ```
 
-restart the service with `pulseaudio -k`
+restart the service with `pulseaudio -k`  
 
 ### Bluetooth settings
 
@@ -629,7 +629,53 @@ Java IDE
 Install by downloading the eclipse installer.  
 unzip it and run install.sh file, select eclipse EE as it contains everything related to java projects.
 
-Settings to change
+Settings to change  
+After launching eclipse for the first time it will ask for a workspace, it is a best pratice to create a folder for all the eclipse projects in a directory.  
+mine: `/home/t/Documents/EclipseWorkspace`, click on the don't show again button(can change again in settings).  
+there are two types of properties for eclipse customization.  
+1. Project specific properties that are reset to default on launch of a new project.  change by going to project-> properties
+2. Editor specific properties that are common to all projects open in the current perspective.  change by going to window -> preferences
+
+- Change the perspective depending on the project.  
+  - put problems,javadoc,declaration, console on bottom bar. 
+
+Most of the following settings take effect when the IDE is restarted.
+
+1. General 
+   1. don't always run in background
+   2. Appearance
+      1. dark
+   3. editors
+      1. autosave on to 1 second
+   4. java -> editor -> content assist
+      1. paste `._abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ` in auto activation triggers for java place
+    1. Keys(unbind any other actions with same keybinds to avoid ambiguity)
+       1. Preferences -> ctrl+shift+I
+       2. toggle block selection -> ctrl+up-arrow, can't insert multiple cursors in all locations only in straight lines 
+       3. run -> f5
+       4. debug -> f6
+       5. step into -> f7
+       6. step return(step out) -> ctrl+f7
+       7. step over -> f8
+       8. resume (continue code execution) -> ctrl+enter
+       9. delete line -> ctrl+delete
+       10. copy lines -> shift+alt+downarrow
+       11. fold -> ctrl+num-pad minus
+       12. fold all -> ctrl+shift+num-pad minus
+       13. unfold -> ctrl+num-pad plus
+       14. unfold all -> ctrl+shift+num-pad plus
+       15. zoom in -> ctrl+=
+       16. zoom out -> ctrl+-
+       17. format document -> alt+f
+       18. to upper case -> ctrl+shift+q
+       19. to lower case -> ctrl+alt+q
+       20. undo -> ctrl+z
+       21. redo -> ctrl+y
+   5.  Font : change all fonts to operator / firacode with same font size and weight(bold)
+   6.  download the google style formatter for java eclipse from github and import that to java formatter
+   7.  general -> show heap status
+   8.  install darkest dark theme from eclipse marketplace  
+   9.  install atom dark theme with purple styling into darkest dark theme.  
 
 **electronmail**  
 protonmail client  
@@ -738,9 +784,20 @@ Install by downloading the ocs url deb package and install with `sudo apt-get in
 audio device manager for KDE comes by default if not install.  
 Install -> `sudo apt install pavucontrol`
 
+**Photoshop**  
+Popular photo editing software.  
+Install in linux with this git repo, follow the steps on this repo and photoshop works.  
+Their is also another repo with illustrator installation provided, install it for web development.  
+[https://github.com/Gictorbit/photoshopCClinux](https://github.com/Gictorbit/photoshopCClinux)  
+
 **plasma widgets and tools**  
 Widget tools for kde  
 Install -> `sudo apt-get install plasma-widgets-addons plasma-nm`
+
+**pulseeffects**  
+Best audio equalizer and editor for music enhancing in ubuntu.  
+Install -> `sudo apt-get install pulseeffects lsp-plugins`  
+Load the preset from linux files  
 
 **Python3**  
 By default, there is a python 3 installed with ubuntu, but if we need an old or new version then we can install it by adding a PPA.  
