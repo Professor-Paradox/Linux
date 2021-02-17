@@ -585,9 +585,12 @@ desktop toolbox off
 -   add icon only task manager
 -   pin folder icon, firefox, brave, vs code
 -   recycle bin at the end
--   Install **window buttons applet** by downloading the file from the KDE store and running the install script.
--   follow the installation instructions.
--   active window is maximized
+-   Install **window buttons applet** using the following.
+```bash  
+sudo add-apt-repository ppa:krisives/applet-window-buttons
+sudo apt install applet-window-buttons
+```
+-   activated when window is maximized
 -   disable borders for maximized windows
 
 **chrome**  
