@@ -1,0 +1,173 @@
+Windows Registry Editor Version 5.00
+# create a new temp file with .reg extension then copy and paste the commands you need then run it by opening with registry editor
+# some settings need the explorer to be restart from the task manager, better restart after applying all the settings.
+# disable windows defender completely
+#[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender]
+#"DisableAntiSpyware"=dword:00000001
+
+#[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection]
+#"DisableBehaviorMonitoring"=dword:00000001
+#"DisableOnAccessProtection"=dword:00000001
+#"DisableScanOnRealtimeEnable"=dword:00000001
+
+
+# reduce shutdown time
+#[HKEY_CURRENT_USER\Control Panel\Desktop]
+#"HungAppTimeout"="1000"
+#"WaitToKillAppTimeout"="1000"
+#"AutoEndTasks"=dword:00000001
+#[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control]
+#"WaitToKillServiceTimeout"="1000"
+
+# remove program startup delay 
+#[HKEY_Current_User\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Serialize]
+#"StartupDelayInMSec"=dword:00000000
+
+# add verbose messages to windows boot sequence
+#[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\System]
+#"VerboseStatus"=dword:00000001
+
+# shows seconds in taskbar clock
+#[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+#"ShowSecondsInSystemClock"=dword:00000001
+
+# Click to open Last Active Window on application icon click tasbar
+#[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+#"LastActiveClick"=dword:00000001
+
+# add a takeownership context menu on shift click easy 
+#[HKEY_CLASSES_ROOT\*\shell\runas]
+#@="Take Ownership"
+#"NoWorkingDirectory"=""
+
+#[HKEY_CLASSES_ROOT\*\shell\runas\command]
+#@="cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant administrators:F"
+#"IsolatedCommand"="cmd.exe /c takeown /f \"%1\" && icacls \"%1\" /grant administrators:F"
+
+#[HKEY_CLASSES_ROOT\Directory\shell\runas]
+#@="Take Ownership"
+#"NoWorkingDirectory"=""
+#"Extended"=""
+
+#[HKEY_CLASSES_ROOT\Directory\shell\runas\command]
+#@="cmd.exe /c takeown /f \"%1\" /r /d y && icacls \"%1\" /grant administrators:F /t"
+#"IsolatedCommand"="cmd.exe /c takeown /f \"%1\" /r /d y && icacls \"%1\" /grant administrators:F /t"
+
+# remove the take owner ship command above 
+# [-HKEY_CLASSES_ROOT\*\shell\runas]
+# [-HKEY_CLASSES_ROOT\Directory\shell\runas]
+
+
+# remove 3d objects folder 
+#[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}]
+#[-HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}]
+
+
+
+
+
+# Context menu options 
+# These settings won't apply unless we have the access to the folder so go to registry editor and go to these locations
+# take permissions to your self,then manually run these commands in a new file or type them 
+
+
+# remove open with powershell from context menu 
+# [HKEY_CLASSES_ROOT\Directory\Background\shell\Powershell]
+# "ProgrammaticAccessOnly"=""
+
+# add open with windows terminal admin option to context menu
+# [HKEY_CLASSES_ROOT\Directory\Background\shell\Windows Terminal]
+# "Icon"="C:\\Users\\Public\\Windows Terminal\\Sources\\wt.ico"
+# @="Open Windows Terminal Here(Admin)"
+
+# [HKEY_CLASSES_ROOT\Directory\Background\shell\Windows Terminal\command]
+# @="wscript.exe \"C:\\Users\\Public\\Windows Terminal\\Sources\\Runs_Terminal_as_Admin.vbs\" \"wt.exe\" \"%V.\""
+ 
+# [HKEY_CLASSES_ROOT\Directory\shell\Powershell]
+# "ProgrammaticAccessOnly"=""
+
+# remove share from context menu 
+#[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked]
+#"{e2bf9676-5f8f-435c-97eb-11607a5bedf7}"=""
+
+# remove open with windows terminal from context menu 
+#[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked]
+#"{e2bf9676-5f8f-435c-97eb-11607a5bedf7}"=""
+#"{9F156763-7844-4DC4-B2B1-901F640F5155}"="WindowsTerminal"
+
+# remove restore previous versions from context menu
+#[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked]
+#"{596AB062-B4D2-4215-9F74-E9109B0A8153}"=""
+
+# remove new rich text document option from context menu
+#[-HKEY_CLASSES_ROOT\.rtf\ShellNew]
+
+# remove new zip folder option from context menu
+#[-HKEY_CLASSES_ROOT\.zip\CompressedFolder\ShellNew]
+
+# remove new bmp file create option from context menu 
+#[-HKEY_CLASSES_ROOT\.bmp\ShellNew]
+
+# remove new docx file create option from context menu 
+#[-HKEY_CLASSES_ROOT\.docx\Word.Document.12\ShellNew]
+
+# remove new pptx file create option from context menu 
+#[-HKEY_CLASSES_ROOT\.pptx\PowerPoint.Show.12\ShellNew]
+
+# remove new xlsx file create option from context menu 
+#[-HKEY_CLASSES_ROOT\.xlsx\Excel.Sheet.12\ShellNew]
+
+# remove include in library location from context menu
+#[-HKEY_CLASSES_ROOT\Folder\shellex\ContextMenuHandlers\Library Location]
+
+# remove pin to quickaccess from context menu 
+#[-HKEY_CLASSES_ROOT\Folder\shell\pintohome]
+
+# remove pin to start from context menu 
+#[-HKEY_CLASSES_ROOT\exefile\shellex\ContextMenuHandlers\PintoStartScreen]
+#[-HKEY_CLASSES_ROOT\Folder\shellex\ContextMenuHandlers\PintoStartScreen]
+#[-HKEY_CLASSES_ROOT\Microsoft.Website\shellex\ContextMenuHandlers\PintoStartScreen]
+#[-HKEY_CLASSES_ROOT\mscfile\shellex\ContextMenuHandlers\PintoStartScreen]
+
+# remove scan with windows defender from context menu
+#[-HKEY_CLASSES_ROOT\CLSID\{09A47860-11B0-4DA5-AFA5-26D86198A780}]
+
+# remove git gui options from context menu
+#[-HKEY_CLASSES_ROOT\Directory\shell\git_gui]
+#[-HKEY_CLASSES_ROOT\Directory\shell\git_shell]
+#[-HKEY_CLASSES_ROOT\Directory\Background\shell\git_gui]
+#[-HKEY_CLASSES_ROOT\Directory\Background\shell\git_shell]
+
+
+# remove add to vlc playlist from folder context menu
+#[-HKEY_CLASSES_ROOT\Directory\shell\AddtoPlaylistVLC]
+
+# remove play with vlc from folder context menu
+#[-HKEY_CLASSES_ROOT\Directory\shell\PlayWithVLC]
+
+# remove open with windows terminal context menu
+#[-HKEY_CLASSES_ROOT\Directory\shell\Windows Terminal]
+
+# remove give access to from folder context menu
+#[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked]
+#"{f81e9010-6ea4-11ce-a7ff-00aa003ca9f6}"=""
+
+# remove new > shortcut option from right click menu
+#[-HKEY_CLASSES_ROOT\.lnk\ShellNew]
+
+# remove edit with paint 3d option from image context menu 
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\SystemFileAssociations\.jpg\Shell]
+
+
+# remove display settings option from right click
+# first go to the following location and change the owner ship to admin on current and sub folders 
+# then give the current user full control over it
+#[-HKEY_CLASSES_ROOT\DesktopBackground\Shell\Display]
+
+
+# To login without passwords follow this 
+
+# Go to `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon`
+# Change the values of `DefaultUserName` and `DefaultPassword`, if doesn't exist create them(String values) and provide your user name and password
+# change `AutoAdminLogon` to 1(String value)
+# reboot to verify
