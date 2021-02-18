@@ -62,10 +62,6 @@ Windows Registry Editor Version 5.00
 #[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}]
 #[-HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}]
 
-
-
-
-
 # Context menu options 
 # These settings won't apply unless we have the access to the folder so go to registry editor and go to these locations
 # take permissions to your self,then manually run these commands in a new file or type them 
