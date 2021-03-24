@@ -58,10 +58,13 @@ Saves a lot of time.
     - Make 7zip the default archive manager
 2. **Adobe Photoshop**
     - Disconnect the internet to install the cracked version and follow the readme to install.
-    - Make sure Windows Defender is turned off.
-3. **AutoHotKey**
+    - Make sure Windows Defender is turned off.\
+3. **Adobe Dream Viewer**
+4. **Adobe Premiere Pro**
+
+5. **AutoHotKey**
     - Download the latest version and install
-4. **Chocolatey**  
+6. **Chocolatey**  
    Chocolatey is a packages manager for windows which can be used to install softwares from command line.  
    Install chocolatey package from (here)[https://chocolatey.org/docs/installation]  
    Run these in PowerShell Admin To Install Chocolatey.
@@ -80,10 +83,15 @@ choco install peazip potplayer python3 qbittorrent --force -y
 choco install sumatrapdf virtualbox vscode wiztree --force -y
 ```
 
-5. **Clementine**
+5. **Strawberry**
     - Download the latest version and install
-    - Enable 1second fadeout
-    - Save ratings and Statistics to the file
+    - double clicking on a song will > add to queue and play if there is nothing playing already
+    - buffer duration 40,000
+    - Enable 1 second fadeout
+    - fade on pause or resume
+    - continue to next song if item is unavailable
+    - metadata enable both options
+    - show mood bar happy
     - Change Stop after current track to `media stop`
     - Modify the Columns Order to this
     - Title,Artist,Album,Album Artist, Genre, Play count
@@ -95,17 +103,24 @@ choco install sumatrapdf virtualbox vscode wiztree --force -y
     - Background and Common Transparency -> Opaque
     - Font -> Comic Sans,Regular,8
     - Keyboard Shortcut -> Windows + Insert
-    - Font -> Comic Sans,Regular,8
+    - Maximum fragments 5000
+    - Preview Text Font -> Comic Sans,Regular,8
+    - Item height 80
 7. **Daum Potplayer**
     - Download the latest version and install
-8. **Dolby Home Theater**
-    - To install Dolby Home Theater Reboot to Safe Mode with Driver Signature Disabled
-    - Then install Dolby PCEE Drivers and Select Home Theater Debug Version
-    - After that reboot and install Dolby Home Theater File.
-9. **Eclipse**
-    - Download the latest Eclipse Inst JRE, this can be used to install all Eclipse Products.
-    - We need internet connection to install the Environment we need.
-    - Install Java EE, it contains standard and Enterprise tools.
+8. **Dolby atmos**
+    - To install Dolby atmos Reboot to Safe Mode with Driver Signature Disabled
+    - go to device manager and select your audio device, then update the driver with hdconfig.inf file
+    - reboot and double click the appx package
+    - done
+9. **Spring Tool Suite**
+    - download the latest version
+    - have java instlled and ready to use, extract the jar file and paste the contents in C: make a shortcut to access
+    - Settings to change 
+    - 
+
+
+
 10. **ElectroMail**
     - Download the latest Version and Install
 11. **Everything**
@@ -128,6 +143,7 @@ choco install sumatrapdf virtualbox vscode wiztree --force -y
     - Download and Install the latest version
     - Uninstall all the Thirdparty applications from microsoft store.
     - Uninstall any extra software we installed till now
+    - Disable all notifications
 17. **Java**
     - Download and install Latest Oracle Jdk or LTS Oracle JDK
     - If using Open JDK then extract the downloaded zip and paste them in program files/Java folder
@@ -154,51 +170,68 @@ choco install sumatrapdf virtualbox vscode wiztree --force -y
     - network ip up time
 20. **MSI Afterburner**
     - Download the latest version and Install it
-    - Add 200MHZ to core and memory and save it as the default
-    - Change the on screen display options for games
-    - Don't autostart, run when playing games
+    - update the riva tuner statistics software if prompted
+    - it will download the needed directx tools may take some time
+    - Add 200MHZ to core and memory and save it as the default profile and lock it
+    - unlock fan speed control and change speed to 50% from 30 degrees, modify further as needed
+    - monitor theses settings
+    - gpu usage,gpu temperature,memory usage,cpu temperature,cpu usage,ram usage,framerate,frametime(text and graph)
+    - 2d profile and 3d profile to 200mhz profile
+    - skin transparency opaque
+    - Don't autostart, run when playing games, as it keeps showing the stats on media players also
 21. **Microsoft tools**
     - Install all the needed Office applications directly from the store
     - Login with Credentials and use them
     - These tools are web based so can't read local Documents
+    - Download additional microsoft tools from internet like vscode and teams
 22. **Microsoft Office**
     - Mount the drive and run Autorun file
     - Select Word,PowerPoint,Excel and Run the installation after it is done
     - Run the Activate office option
     - Verify by opening a blank Word document and visit the account page in file menu.
-23. **Network Monitor**
+23. **Nox Player**
+    - Android Emulator
+    - Enable root support
+    - Install Adblock,
+24. **Network Monitor**
     - Install by changing the compatibility version to windows 7
     - kB/s, 0.0 Precision
-    - Consolas,9,ClearType,ShowBitrate,7 Width
-24. **PowerShell**
+    - Arial,9,ClearType,ShowBitrate,7 Width
+25. **PowerShell**
     - Install the latest Windows Powershell from Store
-25. **Python3**
+26. **Python3**
     - Install the latest Python 3
-26. **qBittorrent**
+    - Add to path
+27. **qBittorrent**
     - Download and Install the latest Version
     - Show splash, start minimized
-    - Download Path D:\Series
-    - Tcp Only
-    - Random Port
-    - maximum 1000
+    - Download Path D:\Downloads\qBittorrent
+    - Different port on each startup
+    - global maximum 2000
     - Per Torrent 200
     - Anonymous Mode
     - No Torrent Queue
-    - Stop Seeding When Torrent Reaches 2.0
-    - Recheck torrents on Completion
+    - Stop Seeding When Torrent Reaches 2.0 or seeded for 2500 Min, remove torrent
     - Change the order of columns to this
     - Name,Size,Progress,Seeds,Peers,Down Speed, Up Speed,ETA,Ratio
-27. **Smart Defrag**
+    - paste the trackers in the trackerslist file in add trackers option
+28. **qTTabBar**
+
+    - Best ctrl+tab for windows
+    - Install latest version and go to explorer -> View -> Options(click on the down arrow) -> qttabbar options will be visible
+    - restore the settings in xml file
+
+29. **Smart Defrag**
     - Install the Setup then apply Patch
-28. **Speaking Clock**
+30. **Speaking Clock**
     - Install Speaking Clock
     - Announce Every 20 Minutes
     - Start minimized, Show clock in Taskbar, Start clock
     - Volume High
     - Language American Male
-29. **Spotify**
+31. **Spotify**
     - Install the latest version of spotify
-30. **StarDock Fences**
+32. **StarDock Fences**
     - Install the Fences Setup then Patch the Fences.exe and Reboot
     - After reboot Change the following Features
     - No Translucent
@@ -207,16 +240,16 @@ choco install sumatrapdf virtualbox vscode wiztree --force -y
     - Automatically Hide after 2 minutes
     - Automatically Show When using
     - Put all Folder files in a single folder
-31. **SumatraPDF**
+33. **SumatraPDF**
     - Install Latest Version
-32. **TeamViewer**
-    - Install Latest Version
-33. **VLC**
+34. **TeamViewer**
+    - Use portable version
+35. **VLC**
     - Download and Install the latest Version
-34. **VSCode**
+36. **VSCode**
     - Download and install the latest version
     - Sync settings with your Github account for easy backups
-35. **Volume Taskbar**
+37. **Volume Taskbar**
     - Install the latest Version
     - Changing steps 100
     - Sound_01
@@ -224,8 +257,11 @@ choco install sumatrapdf virtualbox vscode wiztree --force -y
     - Windows 10 v2 OSD
     - Center
     - Remove all Shortcuts except default ones
-36. **Windows Terminal**
+38. **Windows Terminal**
     - Download latest version from store and select Powershell installed as the default shell
+    - create a desktop shortcut of windows terminal and go to properties edit the shortcut option, assign ctrl+alt+T as the shortcut to open it
+    - if shortcut is deleted the keybind will also be deleted
+    - create a shortcut on desktop and go to its settings and add ctrl + alt + t as a keybind
 
 ## Windows Tweaks
 
@@ -292,12 +328,12 @@ Below are some suggestions you can use.
 -   Windows Explorer
 
     -   Goto File -> Change Folder Options
-        -   file explorer into this pc
+        -   file explorer into this pc/show most used in quick access
         -   can change properties off all sub folder to take the parent options apply folders
         -   ctrl shift 1 to increase icon size
         -   search all off
 
--   TO **Open An Application on Boot** copy the shortcut of that application to `C:\Users\T\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup` folder.
+-   TO **Open An Application on Boot** copy the shortcut of that application to `C:\Users\T\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup` folder. or type shell:startup in terminal to open this path.
 
 ### Windows Registry Tweaks
 
@@ -372,3 +408,148 @@ Reboot the pc
     - To fix open **cmd(run as administrator)**, type `rd /s /q <drive letter>:\$Recycle.bin`
     - In my case the command is `rd /s /q D:\$Recycle.bin`
     - Verify if the error still exists
+
+Windows Default Keybinds
+
+| Keybinds                     | usage                                                                                               |
+| ---------------------------- | --------------------------------------------------------------------------------------------------- |
+| Ctrl + Backspace             | Application Specific (Mostly Delete word before the cursor)                                         |
+| Ctrl + Tab                   | Application Specific, Mostly switch between open tabs                                               |
+| Ctrl + w                     | Application Specific, Mostly Close the Active Win + Shiftdow, tab                                   |
+| Ctrl + e                     | Application Specific, Mostly use default search of application                                      |
+| Ctrl + r                     | Application Specific, Mostly reload the application window, tab                                     |
+| Ctrl + y                     | Redo an action(un-undo)                                                                             |
+| Ctrl + o                     | Application Specific, Mostly Open a document or page                                                |
+| Ctrl + p                     | Application Specific, Mostly Print the current window, tab, document                                |
+| Ctrl + a                     | Select All                                                                                          |
+| Ctrl + s                     | Save the Document                                                                                   |
+| Ctrl + d                     | Application Specific, Mostly Bookmark a page or document                                            |
+| Ctrl + f                     | find content in current doc or page                                                                 |
+| Ctrl + g                     | Application Specific, Mostly Goto next finding of search                                            |
+| Ctrl + h                     | Application Specific, Mostly Find and Replace or history of application                             |
+| Ctrl + j                     | Application Specific, Mostly Downloads tab in browsers                                              |
+| Ctrl + l                     | Application Specific, Mostly go to search bar in browsers                                           |
+| Ctrl + z                     | Undo previous action                                                                                |
+| Ctrl + x                     | Cut selected content                                                                                |
+| Ctrl + c                     | copy selected content                                                                               |
+| Ctrl + v                     | paste clipboard content                                                                             |
+| Ctrl + n                     | New Doc or new page                                                                                 |
+| Ctrl + /                     | Application Specific, Mostly Comment code in development                                            |
+| Ctrl + Escape                | Start Menu                                                                                          |
+| Ctrl + Home                  | Go to the beginning of the document or Page                                                         |
+| Ctrl + Delete                | Application Specific, Mostly used to delete the next word after the cursor or delete an entire line |
+| Ctrl + End                   | Go to the End of the Document or Page                                                               |
+| Ctrl + Up Arrow              | Application Specific, Mostly Media control volume up                                                |
+| Ctrl + Left Arrow            | Application Specific, Mostly Media Control seek backwards                                           |
+| Ctrl + Down Arrow            | Application Specific, Mostly Media Control volume down                                              |
+| Ctrl + Right Arrow           | Application Specific, Mostly Media Control Seek upwards                                             |
+| Shift + Tab                  | Move Backwards in selection order                                                                   |
+| Shift + Enter                | Go Back in menu selection                                                                           |
+| Shift + Space                | Select contents                                                                                     |
+| Shift + F10                  | show right click menu for a file, folder                                                            |
+| Shift + Home                 | Select Items                                                                                        |
+| Shift + Page Up              | Select Items                                                                                        |
+| Shift + Delete               | Permanently delete files                                                                            |
+| Shift + End                  | select items                                                                                        |
+| Shift + Page Down            | Select Items                                                                                        |
+| Shift + Up Arrow             | Select Items                                                                                        |
+| Shift + Down Arrow           | Select Items                                                                                        |
+| Alt + 1                      | Application specific, Mostly properties of file                                                     |
+| Alt + Tab                    | Switch between applications                                                                         |
+| Alt + e                      | Edit menu                                                                                           |
+| Alt + t                      | Tools Menu                                                                                          |
+| Alt + p                      | Application specific, Mostly Preview                                                                |
+| Alt + Enter                  | Application specific, file or folder properties                                                     |
+| Alt + Space                  | Application Window property                                                                         |
+| Alt + Escape                 | Switch to previous applications                                                                     |
+| Alt + F4                     | Close the application                                                                               |
+| Alt + Up Arrow               | Back one level                                                                                      |
+| Alt + Left Arrow             | Back one level                                                                                      |
+| Alt + Right Arrow            | Forward one level                                                                                   |
+| Ctrl + Alt + 1               | Windows Explorer icon size Extra Large                                                              |
+| Ctrl + Alt + 2               | Windows Explorer icon size Large                                                                    |
+| Ctrl + Alt + 3               | Windows Explorer icon size Medium                                                                   |
+| Ctrl + Alt + 4               | Windows Explorer icon size small                                                                    |
+| Ctrl + Alt + 5               | Windows Explorer icon list                                                                          |
+| Ctrl + Alt + 6               | Windows Explorer icon details                                                                       |
+| Ctrl + Alt + 7               | Windows Explorer icon tiles                                                                         |
+| Ctrl + Alt + 8               | Windows Explorer icon content                                                                       |
+| Ctrl + Alt + -               | Windows Explorer decrease icon size                                                                 |
+| Ctrl + Alt + =               | Windows Explorer increase icon size                                                                 |
+| Ctrl + Alt + Tab             | Hold the applications list to switch easily with tab                                                |
+| Ctrl + Alt + Escape          | Switch to previous applications                                                                     |
+| Ctrl + Alt + Delete          | Signout menu/ system interrupt                                                                      |
+| Ctrl + Shift + 1             | Windows Explorer icon size Extra Large                                                              |
+| Ctrl + Shift + 2             | Windows Explorer icon size Large                                                                    |
+| Ctrl + Shift + 3             | Windows Explorer icon size Medium                                                                   |
+| Ctrl + Shift + 4             | Windows Explorer icon size small                                                                    |
+| Ctrl + Shift + 5             | Windows Explorer icon list                                                                          |
+| Ctrl + Shift + 6             | Windows Explorer icon details                                                                       |
+| Ctrl + Shift + 7             | Windows Explorer icon tiles                                                                         |
+| Ctrl + Shift + 8             | Windows Explorer icon content                                                                       |
+| Ctrl + Shift + Tab           | Cycle throw tabs in explorer in reverse order                                                       |
+| Ctrl + Shift + w             | Application Specific, Mostly Close the application                                                  |
+| Ctrl + Shift + t             | Application Specific, restore previous tabs in browser, new text file creation                      |
+| Ctrl + Shift + i             | Application Specific, inspect in browser                                                            |
+| Ctrl + Shift + o             | Application Specific, bookmarks menu in browser                                                     |
+| Ctrl + Shift + p             | Application Specific, shortcut helper pop up                                                        |
+| Ctrl + Shift + a             | Application Specific, search in browser tabs                                                        |
+| Ctrl + Shift + f             | Application Specific, create a new folder                                                           |
+| Ctrl + Shift + j             | Application Specific, console in browsers                                                           |
+| Ctrl + Shift + c             | Application Specific, Inspect in browser, copy file path                                            |
+| Ctrl + Shift + b             | Application Specific, toggle bookmarks bar in browsers                                              |
+| Ctrl + Shift + n             | Application Specific, create a new folder, incognito in browsers                                    |
+| Ctrl + Shift + Escape        | Taskmanager                                                                                         |
+| Ctrl + Shift + Delete        | Application Specific, clear browser history in browsers                                             |
+| Shift + Alt + Tab            | Switch to applications in reverse order                                                             |
+| Shift + Alt + Space          | application shortcut menu                                                                           |
+| Shift + Alt + Escape         | Switch applications in cycle                                                                        |
+| Shift + Alt + Print Screen   | Toggle High Contrast Mode                                                                           |
+| Win + 1                      | Open the 1 application in taskbar                                                                   |
+| Win + 2                      | Open the 2 application in taskbar                                                                   |
+| Win + 3                      | Open the 3 application in taskbar                                                                   |
+| Win + 4                      | Open the 4 application in taskbar                                                                   |
+| Win + 5                      | Open the 5 application in taskbar                                                                   |
+| Win + 6                      | Open the 6 application in taskbar                                                                   |
+| Win + 7                      | Open the 7 application in taskbar                                                                   |
+| Win + 8                      | Open the 8 application in taskbar                                                                   |
+| Win + 9                      | Open the 9 application in taskbar                                                                   |
+| Win + 0                      | Open the 10 application in taskbar                                                                  |
+| Win + -                      | zoom in                                                                                             |
+| Win + =                      | zoom out                                                                                            |
+| Win + Tab                    | open task view                                                                                      |
+| Win + e                      | open windows explorer                                                                               |
+| Win + r                      | windows run                                                                                         |
+| Win + t                      | cycle through taskbar applications                                                                  |
+| Win + i                      | open system settings                                                                                |
+| Win + p                      | Open project connection settings                                                                    |
+| Win + a                      | open action center                                                                                  |
+| Win + s                      | windows search                                                                                      |
+| Win + d                      | show desktop                                                                                        |
+| Win + k                      | open connect to projector panel                                                                     |
+| Win + l                      | lock pc                                                                                             |
+| Win + x                      | Open context menu on windows button                                                                 |
+| Win + b                      | focus on task bar notification area                                                                 |
+| Win + m                      | Minimize all windows                                                                                |
+| Win + ,                      | Peek at desktop                                                                                     |
+| Win + .                      | Emoji Panel                                                                                         |
+| Win + Pause                  | Break open system settings about section directly                                                   |
+| Win + Up Arrow               | Maximize window                                                                                     |
+| Win + Left Arrow             | Put window to left                                                                                  |
+| Win + Down Arrow             | Minimize window                                                                                     |
+| Win + Right Arrow            | Put window to right                                                                                 |
+| Win + Shift + 1              | Open the 1 application in taskbar                                                                   |
+| Win + Shift + 2              | Open the 2 application in taskbar                                                                   |
+| Win + Shift + 3              | Open the 3 application in taskbar                                                                   |
+| Win + Shift + 4              | Open the 4 application in taskbar                                                                   |
+| Win + Shift + 5              | Open the 5 application in taskbar                                                                   |
+| Win + Shift + 6              | Open the 6 application in taskbar                                                                   |
+| Win + Shift + 7              | Open the 7 application in taskbar                                                                   |
+| Win + Shift + 8              | Open the 8 application in taskbar                                                                   |
+| Win + Shift + 9              | Open the 9 application in taskbar                                                                   |
+| Win + Shift + 0              | Open the 10 application in taskbar                                                                  |
+| Win + Shift + s/ printscreen | take a screenshot                                                                                   |
+| Win + Alt + d                | Toggle task bar calendar                                                                            |
+| Win + Ctrl + d               | create a new virtual desktop                                                                        |
+| Win + Ctrl + Left Arrow      | go to previous virtual desktop                                                                      |
+| Win + Ctrl + Right Arrow     | go to next virtual desktop                                                                          |

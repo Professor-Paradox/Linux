@@ -1,4 +1,5 @@
 Windows Registry Editor Version 5.00
+
 # create a new temp file with .reg extension then copy and paste the commands you need then run it by opening with registry editor
 # some settings need the explorer to be restart from the task manager, better restart after applying all the settings.
 # disable windows defender completely
